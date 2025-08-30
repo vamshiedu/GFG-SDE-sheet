@@ -38,7 +38,7 @@ void approach1(vector<int>& arr){
 
     sort(arr.begin(), arr.end());
 
-    for(int i = 0 ; i < arr.size() - 1 ; i++){
+    for(int i = 1 ; i < arr.size() - 1 ; i = i + 2){
         swap(arr[i], arr[i +  1]);
     }
 }
@@ -47,7 +47,7 @@ void approach1(vector<int>& arr){
 //Approach2 optimal approach O(n) time and O(1) space.
 //We simply use a flag and arranging triplets we can achieve the conversion. if flag is true we check 
 // a < b if not we swap and if flag is false a > b if not we swap then for each triplet it becomes a < b > c;
-void approach1(vector<int>& arr){
+void approach2(vector<int>& arr){
     bool flag = true;
     int i = 0;
         
@@ -83,7 +83,7 @@ int main(){
 
         cout << "Conversion is : " << endl;
         for(auto it : arr){
-            cout << it << " " << endl;
+            cout << it << " " ;
         }
         
     }
