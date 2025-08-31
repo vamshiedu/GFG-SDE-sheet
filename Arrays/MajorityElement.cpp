@@ -25,7 +25,7 @@ Constraints:
 #include <vector>
 using namespace std;
 
-int majorityElement(vector<int>& arr) {
+int approach1(vector<int>& arr) {
     int n = arr.size();  
     for (int i = 0; i < n; i++) {
         int count = 0; 
@@ -41,11 +41,34 @@ int majorityElement(vector<int>& arr) {
     }
     return -1;
 }
+int approach2(vector<int>& arr){
+
+    int count = 0;
+    int curr = -1;
+    for(int i = 0 ; i < arr.size() ; i++){
+        if(count == 0){
+            curr = arr[i];
+            count = count + 1;
+        }else if(curr == arr[i]){
+            count++;
+        }else{
+            count--;
+        }
+    }
+    count = 0;
+    int n = arr.size();
+    for(int num : arr){
+        if(num == curr) count++;
+    }
+    if(count > n / 2) return curr;
+    return -1;
+
+}
 
 int main() {
     vector<int> arr = {1, 1, 2, 1, 3, 5, 1};
     
-    cout << majorityElement(arr) << endl;
+    cout << approach1(arr) << endl;
 
     return 0;
 }
